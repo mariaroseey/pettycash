@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="dashboard.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body> 
@@ -17,29 +16,28 @@
                     <span>Dashboard</span>
                 </a>
             </li>
-            <li >
+            <li>
                 <a href="view-transaction.html">
-                     <i class="fas fa-file"></i>
-                     <span>View Transaction</span>
+                    <i class="fas fa-file"></i>
+                    <span>View Transaction</span>
                 </a> 
-             </li>
-             <li>
+            </li>
+            <li>
                 <a href="add-custodian.html">
-                     <i class="fas fa-user-plus"></i>
-                     <span>Add Transaction</span>
+                    <i class="fas fa-user-plus"></i>
+                    <span>Add Transaction</span>
                 </a> 
-             </li>
-            
-             <li class="logout">
+            </li>
+            <li class="logout">
                 <a href="logout.html">
-                     <i class="fas fa-sign-out-alt"></i>
-                     <span>Logout</span>
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
                 </a> 
-             </li>
+            </li>
         </ul>
     </div>
 
-     <div class="main">
+    <div class="main">
         <div class="topbar">
             <div class="toggle">
                 <i class="fas fa-bars"></i>
@@ -48,143 +46,97 @@
                 <span>Petty Cash System</span>
             </div>
             <div class="admin">
-                <span>Admin</span>
+                <span id="user-name">Admin</span>
             </div>
         </div>
 
-    <div class="dashboard-container">
-        <div class="topdash">
-            <!-- <h2>Dashboard</h2> -->
-            <div class="searchbar">
-                <input type="search" placeholder="Search here...">
-                <i class="fa fa-search"></i>
+        <div class="dashboard-container">
+            <div class="topdash">
+                <div class="searchbar">
+                    <input type="search" placeholder="Search here...">
+                    <i class="fa fa-search"></i>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <h2>Custodian Transactions</h2>
+                <table class="custodian-table">
+                    <thead>
+                        <tr>
+                            <th>Transaction ID</th>
+                            <th>Date</th>
+                            <th>Amount Given</th>
+                            <th>OR No.</th>
+                            <th>Description</th>
+                            <th>Total</th>
+                            <th>Purchaser</th>
+                            <th>Employee ID</th>
+                            <th>Personal Contributions</th>
+                            <th>Store Name</th>
+                            <th>Receipt Image</th>
+                        </tr>
+                    </thead>
+                    <tbody id="custodian-transaction-list">
+                        <!-- Data will be dynamically populated here -->
+                    </tbody>
+                </table>
             </div>
         </div>
 
-        <div class="table-container">
-            <table class="custodian-table">
-                <thead>
-                    <tr>
-                        <th>Custodian No.</th>
-                        <th>Custodian ID</th>
-                        <th>Cash Fund</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>001</td>
-                        <td>CUST-12345</td>
-                        <td>$500</td>
-                    </tr>
-                    <tr>
-                        <td>002</td>
-                        <td>CUST-67890</td>
-                        <td>$300</td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>CUST-12345</td>
-                        <td>$500</td>
-                    </tr>
-                    <tr>
-                        <td>002</td>
-                        <td>CUST-67890</td>
-                        <td>$300</td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>CUST-12345</td>
-                        <td>$500</td>
-                    </tr>
-                    <tr>
-                        <td>002</td>
-                        <td>CUST-67890</td>
-                        <td>$300</td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>CUST-12345</td>
-                        <td>$500</td>
-                    </tr>
-                    <tr>
-                        <td>002</td>
-                        <td>CUST-67890</td>
-                        <td>$300</td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>CUST-12345</td>
-                        <td>$500</td>
-                    </tr>
-                    <tr>
-                        <td>002</td>
-                        <td>CUST-67890</td>
-                        <td>$300</td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>CUST-12345</td>
-                        <td>$500</td>
-                    </tr>
-                    <tr>
-                        <td>002</td>
-                        <td>CUST-67890</td>
-                        <td>$300</td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>CUST-12345</td>
-                        <td>$500</td>
-                    </tr>
-                    <tr>
-                        <td>002</td>
-                        <td>CUST-67890</td>
-                        <td>$300</td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>CUST-12345</td>
-                        <td>$500</td>
-                    </tr>
-                    <tr>
-                        <td>002</td>
-                        <td>CUST-67890</td>
-                        <td>$300</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+        <script>
+            // Sidebar toggle logic
+            let toggle = document.querySelector('.toggle');
+            let sidebar = document.querySelector('.sidebar');
+            let main = document.querySelector('.main');
 
-    <script>
-       let toggle = document.querySelector('.toggle');
-        let sidebar = document.querySelector('.sidebar');
-        let main = document.querySelector('.main');
-
-       
-        if (localStorage.getItem('sidebarActive') === 'true') {
-            sidebar.classList.add('active'); 
-            main.classList.add('active');
-        }
-
-        toggle.onclick = function () {
-            sidebar.classList.toggle('active');
-            main.classList.toggle('active');
-          
-            localStorage.setItem('sidebarActive', sidebar.classList.contains('active'));
-        };
-    
-        const currentLocation = window.location.pathname;
-        const menuItems = document.querySelectorAll('.sidebar .menu li a');
-
-        menuItems.forEach(item => {
-            if (item.getAttribute('href') === currentLocation.split('/').pop()) {
-                item.parentElement.classList.add('active');
+            if (localStorage.getItem('sidebarActive') === 'true') {
+                sidebar.classList.add('active'); 
+                main.classList.add('active');
             }
-        });
 
+            toggle.onclick = function () {
+                sidebar.classList.toggle('active');
+                main.classList.toggle('active');
+                localStorage.setItem('sidebarActive', sidebar.classList.contains('active'));
+            };
 
-        
-    </script>
-</body>
-</html>
+            // Highlight current page
+            const currentLocation = window.location.pathname;
+            const menuItems = document.querySelectorAll('.sidebar .menu li a');
+            menuItems.forEach(item => {
+                if (item.getAttribute('href') === currentLocation.split('/').pop()) {
+                    item.parentElement.classList.add('active');
+                }
+            });
+
+            // Replace "Admin" with actual user name
+            const userName = localStorage.getItem('userName') || 'Admin';
+            document.getElementById('user-name').textContent = userName;
+
+            // Sample transactions data
+            const recentTransactions = [
+                { transactionId: 'TX-001', date: '2024-10-28', amountGiven: '$150', orNo: 'OR-123', description: 'Office Supplies', total: '$150', purchaser: 'John Doe', employeeId: 'EMP-001', personalContribution: '$0', storeName: 'Office Depot', receiptImage: 'receipt1.jpg' },
+                { transactionId: 'TX-002', date: '2024-10-29', amountGiven: '$200', orNo: 'OR-124', description: 'Travel Reimbursement', total: '$200', purchaser: 'John Doe', employeeId: 'EMP-001', personalContribution: '$50', storeName: 'Travel Co', receiptImage: 'receipt2.jpg' },
+                { transactionId: 'TX-003', date: '2024-10-30', amountGiven: '$50', orNo: 'OR-125', description: 'Snacks for Meeting', total: '$50', purchaser: 'John Doe', employeeId: 'EMP-001', personalContribution: '$0', storeName: 'Local Market', receiptImage: 'receipt3.jpg' }
+            ];
+
+            // Populate custodian transactions table
+            const custodianTransactionList = document.getElementById('custodian-transaction-list');
+            recentTransactions.forEach(transaction => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${transaction.transactionId}</td>
+                    <td>${transaction.date}</td>
+                    <td>${transaction.amountGiven}</td>
+                    <td>${transaction.orNo}</td>
+                    <td>${transaction.description}</td>
+                    <td>${transaction.total}</td>
+                    <td>${transaction.purchaser}</td>
+                    <td>${transaction.employeeId}</td>
+                    <td>${transaction.personalContribution}</td>
+                    <td>${transaction.storeName}</td>
+                    <td><img src="${transaction.receiptImage}" alt="Receipt Image" width="50"></td>
+                `;
+                custodianTransactionList.appendChild(row);
+            });
+        </script>
